@@ -210,32 +210,50 @@
         "padding_bottom": 83
       }
     },
-    "custombestsellers_h6nhEM": {
-      "type": "custombestsellers",
+    "section_rendering_zGYGtQ": {
+      "type": "section-rendering",
+      "settings": {
+      }
+    },
+    "venki_collections_DUX8nX": {
+      "type": "venki-collections",
       "blocks": {
-        "slider_PrpMtG": {
-          "type": "slider",
+        "product_fwQC44": {
+          "type": "product",
           "settings": {
-            "collection_handle": "men-bomber-jacket",
-            "Quicklink_view": "Quick View",
-            "button_link": ""
+            "product": "14k-gold-mini-alidia-cubic-zirconia-ring",
+            "card_color": "#fcf9f6",
+            "Quick_view_button": true
           }
         },
-        "slider_FRMkDV": {
-          "type": "slider",
+        "product_CnP6Aa": {
+          "type": "product",
           "settings": {
-            "collection_handle": "",
-            "Quicklink_view": "Quick View",
-            "button_link": ""
+            "product": "18k-gold-mel-ring-in-green-and-red",
+            "card_color": "#fcf9f6",
+            "Quick_view_button": true
+          }
+        },
+        "product_hYpnQ4": {
+          "type": "product",
+          "settings": {
+            "product": "24k-gold-plated-double-half-circle-ring",
+            "card_color": "#fcf9f6",
+            "Quick_view_button": true
           }
         }
       },
       "block_order": [
-        "slider_PrpMtG",
-        "slider_FRMkDV"
+        "product_fwQC44",
+        "product_CnP6Aa",
+        "product_hYpnQ4"
       ],
       "settings": {
-        "topheading": "You may also like"
+        "title": "Products",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
@@ -244,6 +262,7 @@
     "custom_whychoose_X8eBGU",
     "custom_collections_ppWJGC",
     "ours_story_section_ptcYdR",
-    "custombestsellers_h6nhEM"
+    "section_rendering_zGYGtQ",
+    "venki_collections_DUX8nX"
   ]
 }
