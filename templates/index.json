@@ -210,50 +210,59 @@
         "padding_bottom": 83
       }
     },
-    "section_rendering_zGYGtQ": {
-      "type": "section-rendering",
-      "settings": {
-      }
-    },
-    "venki_collections_DUX8nX": {
-      "type": "venki-collections",
+    "custom_hotspot_D6rPK4": {
+      "type": "custom-hotspot",
       "blocks": {
-        "product_fwQC44": {
-          "type": "product",
+        "hotspot_AtrBp7": {
+          "type": "hotspot",
           "settings": {
-            "product": "14k-gold-mini-alidia-cubic-zirconia-ring",
-            "card_color": "#fcf9f6",
-            "Quick_view_button": true
+            "productid": "shoes-classic-brown",
+            "add_to_cart": true,
+            "hotspot_top_position": 18,
+            "hotspot_left_position": 38,
+            "card_top_position": 0,
+            "card_left_position": 0
           }
         },
-        "product_CnP6Aa": {
-          "type": "product",
+        "hotspot_dabcyw": {
+          "type": "hotspot",
           "settings": {
-            "product": "18k-gold-mel-ring-in-green-and-red",
-            "card_color": "#fcf9f6",
-            "Quick_view_button": true
+            "productid": "black-shirt",
+            "add_to_cart": true,
+            "hotspot_top_position": 38,
+            "hotspot_left_position": 30,
+            "card_top_position": 0,
+            "card_left_position": 0
           }
         },
-        "product_hYpnQ4": {
-          "type": "product",
+        "hotspot_QFFaqH": {
+          "type": "hotspot",
           "settings": {
-            "product": "24k-gold-plated-double-half-circle-ring",
-            "card_color": "#fcf9f6",
-            "Quick_view_button": true
+            "productid": "nylon-holdall-bag",
+            "add_to_cart": true,
+            "hotspot_top_position": 66,
+            "hotspot_left_position": 69,
+            "card_top_position": 0,
+            "card_left_position": 0
           }
         }
       },
       "block_order": [
-        "product_fwQC44",
-        "product_CnP6Aa",
-        "product_hYpnQ4"
+        "hotspot_AtrBp7",
+        "hotspot_dabcyw",
+        "hotspot_QFFaqH"
       ],
       "settings": {
-        "title": "Products",
-        "heading_size": "h1",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "background_color": "#ffffff",
+        "blog_heading": "shop the look",
+        "hotspot_background_image": "shopify:\/\/shop_images\/image_3.jpg",
+        "product_list": [
+          "black-shirt",
+          "blue-pattern-suit",
+          "cotton-pure-t-shirt"
+        ],
+        "padding_top": 30,
+        "padding_bottom": 30
       }
     }
   },
@@ -262,7 +271,6 @@
     "custom_whychoose_X8eBGU",
     "custom_collections_ppWJGC",
     "ours_story_section_ptcYdR",
-    "section_rendering_zGYGtQ",
-    "venki_collections_DUX8nX"
+    "custom_hotspot_D6rPK4"
   ]
 }

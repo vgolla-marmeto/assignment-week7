@@ -1,0 +1,379 @@
+
+{% style %}
+
+.cutsom-hotspot--{{ section.id }}{
+    padding:2rem;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    justify-content:center;
+    position:relative;
+
+}
+@media screen and (min-width:998px){
+    .cutsom-hotspot--{{ section.id }}{
+      padding:5rem;
+    }
+}
+*, :after, :before {
+    box-sizing: inherit;
+    
+}
+.custom-hotspot-image-container{
+    width: 100%;
+    max-height:600px;
+    position:relative;
+}
+.hotspot-img-ele{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+{%  for block in section.blocks %}
+.product-tag-circle-{{forloop.index}}{
+  position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FFFFFF;
+    z-index: 9;
+    border-radius: 100%;
+    top: {{ block.settings.hotspot_top_position }}%;
+    left: {{ block.settings.hotspot_left_position }}%;
+}
+.hotspot-container-{{ forloop.index }} .product-tag-circle-{{ forloop.index }}:before {
+    position: absolute;
+    content: "";
+    border-radius: 100%;
+    transition: all .4s;
+    border: 15px solid #ffffff80;
+    width: 30px;
+    height: 30px;
+    left: -10px;
+    z-index: 8;
+    top: -10px;
+}
+.product-card_hover_show-{{forloop.index}}{
+  padding: 8px;
+  display: flex;
+  background-color:#fff;
+  position:absolute;
+  align-items:center;
+  top: {{ block.settings.hotspot_top_position | plus:2 }}%;
+  left: {{ block.settings.hotspot_left_position | plus:2 }}%;
+  z-index: 10;
+}
+
+{% endfor %}
+.product-card-image-container{
+    display: flex;
+    margin-right: 10px;
+    width: 66px;
+    max-height: 66px;
+}
+.product-card-image{
+  width:100%;
+  object-position:center;
+  object-fit:cover;
+
+}
+.product-card-text-container{
+  background-color: #fff;
+  max-width: 180px;
+  padding:5px;
+}
+.product-card-prices{
+    display:flex;
+    max-width:60%;
+}
+.add-to-card-button{
+    height:30px;
+    width:100px;
+}
+.price-display-values{
+    font-size:16px;
+    margin-right:20px;
+    text-decoration:line-through;
+}
+.card-container-link-top{
+    text-decoration:none;
+}
+.product-card-title{
+    font-size:16px;
+    color:black;
+}
+.card-hover-show{
+    opacity:0;
+}
+.card-hover-show:hover{
+    opacity:1;
+}
+
+
+.product_list-container{
+   margin-top:30px;
+   width:100%;
+   max-width:400px;
+   min-height:400px;
+   padding:20px;
+   border:1px solid black;
+   border-radius:8px;
+   background-color:white;
+
+}
+.product-card-image{
+    width:100%;
+    border-radius:8px;
+    height:300px;
+
+}
+.product-list-container{
+    text-align:center;
+}
+.price-original{
+    color:red;
+    text-decoration:none;
+}
+@media screen and (min-width:998px){
+ .product_list-container{
+    position:absolute;
+    top:30%;
+    right:5%;
+    background-color:white;
+ }
+
+}
+
+
+{% endstyle %}
+
+
+
+   
+
+{% capture sliderOptions %}
+   {
+    "autoplay": "false",
+    "pagination" : "false",
+    "arrows": "true",
+    "perMove": 1,
+    "breakpoints": {
+        "500": {
+            "perPage": 1
+        }
+    }
+   }
+   
+{% endcapture %}
+
+
+
+<div class="cutsom-hotspot--{{ section.id }}">
+    <div class="custom-hotspot--container">
+        {% if section.settings.blog_heading != blank %}
+            <h1> {{ section.settings.blog_heading }}</h1>
+        {% endif %}
+        <div class="custom-hotspot-image-container">
+            {% if section.settings.hotspot_background_image != blank %}
+                <img src="{{ section.settings.hotspot_background_image | image_url}}" height="auto" width="auto" class="hotspot-img-ele">
+              {% else %}
+              {{  }}
+            {% endif %}
+            {%  for  block in section.blocks %}
+            <div class="hotspot-container-{{ forloop.index }}">
+                <span class="product-tag-circle-{{ forloop.index }}"></span>
+            </div>
+                <div
+                  class="product-card_hover_show-{{forloop.index}} card-hover-show">
+                  <div class="product_card_image_container">
+                    <img
+                      src="{{ block.settings.productid.featured_image | image_url }} "
+                      height="60"
+                      width="60"
+                      class="product-card-image"
+                    >
+                  </div>
+                  <div class="product-card-text-container">
+                    <span class="product-card-title">{{ block.settings.productid.title | truncate:15 }}</span>
+                     <div class="product-card-prices">
+                        <span class="price-display-values">${{ block.settings.productid.compare_at_price | money_without_currency }} </span>
+                        <span class="price-display-values price-original">${{block.settings.productid.price | money_without_currency }} </span>
+                    </div>
+                    <span class="add-to-card-button">Add to bag</span>
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="product_list-container">
+        <splider-component class="splide" data-slider-options= '{{ sliderOptions }}'>
+            <div class="splide__track">
+                <ul class="splide__list">
+                    {% for product in section.settings.product_list %}
+                    <li class="splide__slide">
+                    <div class="product-list-container">
+                     <img src='{{ product.featured_image | image_url }}' height="auto" width="auto"  class="product-card-image" />
+                     <p class="product-card-title">{{ product.title }}</p>
+                     <div class="product-card-prices">
+                        <span class="price-display-values price-original">${{product.price | money_without_currency }} </span>
+                        <span class="price-display-values">${{ product.compare_at_price | money_without_currency }} </span>
+                    </div>
+                     </div>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+    
+        </splider-component>
+    </div>
+</div>
+
+
+<script src = {{ "custom-splider.js"| asset_url }} defer> </script>
+
+
+{% schema %}
+{
+ "name": "Custom hotspot section",
+ "tag": "section",
+ "class": "section",
+ "settings": [
+
+    {
+      "type": "color_background",
+      "id" : "background_color",
+      "label": "Background Color",
+      "default":"#ffffff"
+    
+    },
+    {
+     "type": "inline_richtext",
+     "id": "blog_heading",
+     "label": "Heading",
+     "default": "shop the look"
+    
+    },
+    {
+        "type": "image_picker",
+        "id": "hotspot_background_image",
+        "label": "Select image"
+    },
+    {
+    "type": "product_list",
+    "id": "product_list",
+    "label": "List of products"
+    },
+    {
+     "type": "header",
+     "content": "Padding Customization"
+    
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 30
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "padding bottom",
+        "default": 30
+    }
+ ],
+ "blocks": [
+
+    {
+       "name": "hotspot",
+       "type": "hotspot",
+       "settings": [
+        {
+            "type": "product",
+            "id": "productid",
+            "label": "Pick a product"
+        },
+        {
+            "type": "checkbox",
+            "id": "add_to_cart",
+            "label": "Display add to cart",
+            "default": true
+        },
+        {
+            "type": "range",
+            "id": "hotspot_top_position",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Hotspot Top Position",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "hotspot_left_position",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Hotspot Left position",
+            "default": 0
+          },
+          {
+            "type": "header",
+            "content": "Product Card Positions"
+          },
+          {
+            "type": "range",
+            "id": "card_top_position",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Card Top Position",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "card_left_position",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Card Left position",
+            "default": 0
+          }
+
+       ]
+    }
+],
+"presets": [
+  {
+   "name": "Custom hotspot product section",
+   "blocks": [
+   {
+  "type": "hotspot"
+
+},
+{
+    "type": "hotspot"
+  
+  }
+
+
+   ]
+}
+
+]
+
+}
+
+
+{% endschema %}
