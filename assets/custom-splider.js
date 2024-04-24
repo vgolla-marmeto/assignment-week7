@@ -5,7 +5,7 @@ if(!customElements.get("splider-component")) {
         super();
         this.element = this
         console.log(this)
-        this.options = JSON.parse(this.element.dataset.sliderOptions);
+        this.options = JSON.parse(this.element.dataset.sliderOption);
         console.log(this.options);
   
         this.displaySliderShow()

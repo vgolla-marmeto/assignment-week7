@@ -7,13 +7,25 @@
     flex-direction:column;
     min-height:100vh;
     justify-content:center;
+    align-items:center;
     position:relative;
+    padding-top: {{section.settings.padding_top | divided_by:2 }}px;
+    padding-bottom: {{section.settings.padding_bottom | divided_by:2 }}px;
 
 }
 @media screen and (min-width:998px){
     .cutsom-hotspot--{{ section.id }}{
-      padding:5rem;
+    padding:5rem;
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+}
+.custom-hotspot--heading{
+    text-align: {{ section.settings.text_position }}
+}
+*{
+    font-family: "Inter";
+
 }
 *, :after, :before {
     box-sizing: inherit;
@@ -23,13 +35,13 @@
     width: 100%;
     max-height:600px;
     position:relative;
-    border-radius:20% 20% 20px 20px;
+    border-radius:6% 6% 20px 20px;
 }
-.hotspot-img-ele{
+.custom-hotspot-img-ele{
     width:100%;
-    height:100%;
+    max-height:100%;
     object-fit: cover;
-    border-radius:10% 10% 20px 20px;
+    border-radius:6% 6% 20px 20px;
 }
 
 {%  for block in section.blocks %}
@@ -52,7 +64,7 @@
     width: 30px;
     height: 30px;
     left: -10px;
-    z-index: 8;
+    z-index: 2;
     top: -10px;
 }
 .product-card_hover_show-{{forloop.index}}{
@@ -61,59 +73,97 @@
   background-color:#fff;
   position:absolute;
   align-items:center;
-  top: {{ block.settings.hotspot_top_position | plus:2 }}%;
-  left: {{ block.settings.hotspot_left_position | plus:2 }}%;
+  top: {{ block.settings.hotspot_top_position| plus:1 }}%;
+  left: {{ block.settings.hotspot_left_position| plus:1 }}%;
   z-index: 10;
 }
 
 {% endfor %}
-.product-card-image-container{
+
+.custom-hotspot-product-card{
+    max-width:200px;
     display: flex;
-    margin-right: 10px;
+    justify-content:center;
+    align-items:center;
+    padding:3px;
+    max-height:60px;
+
+}
+.custom-hostpot--product-card-image-container{
+    margin-right: 8px;
     width: 66px;
-    max-height: 66px;
+   height: 66px;
 }
-.product-card-image{
-  width:100%;
-  object-position:center;
-  object-fit:cover;
-
-
+.custom-hostpot--product-card-image{
+  height:66px;
+  width:66px;
+  background-size:cover;
 }
-.product-card-text-container{
+
+.custom-hotspot--product-card-text-container{
   background-color: #fff;
-  max-width: 180px;
   padding:5px;
+  text-align:center;
 }
-.product-card-prices{
+.custom-hotspot--product-card-prices-container{
     display:flex;
-    max-width:60%;
+    flex-wrap:wrap;
+
 }
-.add-to-card-button{
-    height:30px;
-    width:100px;
+.add-to-cart-button{
+   width:100%;
+   height:25px;
+   border-radius: 5px;
+   box-shadow: 2px 2px 2px 2px #00000040;
+   padding:4px 8px;
+   font-size:10px;
+   font-weight:700;
+   border:none;
+   background-color:#ffffff;
+
 }
-.price-display-values{
-    font-size:16px;
-    margin-right:20px;
+.display-price-values{
+    font-size:10px;
+    margin-right:10px;
     text-decoration:line-through;
 }
+.product-card-list--compare-price{
+    font-size:16px;
+    margin-left:10px;
+    color:black;
+    text-decoration:line-through;
+
+}
+.product-card-list--price{
+    color:red;
+}
+
+
 .card-container-link-top{
     text-decoration:none;
 }
-.product-card-title{
-    font-size:16px;
+.custom-hotspot--product-card-title{
+    font-size:12px;
     color:black;
+    font-weight:700;
+}
+.product-list--product-card-title{
+    color:black;
+    font-size:18px;
+    font-weight:bold;
 }
 .card-hover-show{
     opacity:0;
+    border-radius: 0 16px 16px 16px;
 }
 .card-hover-show:hover{
     opacity:1;
+    border-radius: 0 16px 16px 16px;
 }
 
 
-.product_list-container{
+
+.product-list-{{ section.id }}{
    margin-top:30px;
    width:100%;
    max-width:400px;
@@ -124,11 +174,39 @@
    background-color:white;
 
 }
+.product-list--image-container{
+    height:300px;
+    width:100%;
+    position:relative;
+}
 .product-card-image-size{
     width:100%;
+    height:100%;
+    background-size:cover;
     border-radius:8px;
-    height:300px;
 
+}
+.product-list--tag{
+    position:absolute;
+    top:5%;
+    left:5%;
+    display:flex;
+    font-size:10px;
+    justify-content:center;
+    align-items:center;
+    background-color:#24a0ed;
+    color:white;
+    height:8px ;
+    width: 35px;
+    padding:20px;
+    border-radius: 10px 10px 5px 5px;
+}
+.product-card--vendor{
+    font-size:10px;
+    color:skyblue;
+}
+.product-list--text-container{
+    padding:10px;
 }
 .product-list-container{
     text-align:center;
@@ -137,18 +215,63 @@
     color:red;
     text-decoration:none;
 }
+.custom-hotspot--product-card a{
+    text-decoration:none;
+    outline:none;
+}
 @media screen and (min-width:998px){
- .product_list-container{
+ .product-list-{{ section.id }}{
     position:absolute;
-    top:30%;
+    top:25%;
     right:5%;
     background-color:white;
+    z-index: 5;
  }
  .custom-hotspot-image-container{
     width: 80%;
     position:relative;
 }
 
+}
+.customer-reviews--review{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.customer-reviews-rating-decimal{
+    margin-left:20px;
+    font-size:16px;
+}
+{% for product in section.settings.product_list %}
+
+.star-rating-{{ forloop.index }}:before {
+    content: "\2605\2605\2605\2605\2605";
+    background: linear-gradient(90deg, #FFAA47 calc({{product.metafields.custom.ratings}}/5 * 100%), #E1E1E1 calc({{product.metafields.custom.ratings}}/5 * 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+.customer-reviews--review .star-rating-{{ forloop.index }} {
+        font-size: 3rem;
+        display:block;
+}
+{% endfor %}
+
+
+
+.splide-card-container .splide__arrow--next {
+    right: -3.7rem;
+    background-color: grey;
+    height: 36px;
+    width: 36px;
+    border-radius: 50% 50% 10px 10px;
+}
+.splide-card-container .splide__arrow--prev {
+    right: -3.7rem;
+    background-color: grey;
+    height: 36px;
+    width: 36px;
+    border-radius: 50% 50% 10px 10px;
 }
 
 
@@ -158,7 +281,7 @@
 
    
 
-{% capture sliderOptions %}
+{% capture sliderOption %}
    {
     "autoplay": "false",
     "pagination" : "false",
@@ -178,11 +301,11 @@
 <div class="cutsom-hotspot--{{ section.id }}">
     <div class="custom-hotspot--container">
         {% if section.settings.blog_heading != blank %}
-            <h1> {{ section.settings.blog_heading }}</h1>
+            <h1 class="custom-hotspot--heading"> {{ section.settings.blog_heading }}</h1>
         {% endif %}
         <div class="custom-hotspot-image-container">
             {% if section.settings.hotspot_background_image != blank %}
-                <img src="{{ section.settings.hotspot_background_image | image_url}}" height="auto" width="auto" class="hotspot-img-ele">
+                <img src="{{ section.settings.hotspot_background_image | image_url}}" height="auto" width="auto" class="custom-hotspot-img-ele">
               {% else %}
               {{  }}
             {% endif %}
@@ -190,40 +313,65 @@
             <div class="hotspot-container-{{ forloop.index }}">
                 <span class="product-tag-circle-{{ forloop.index }}"></span>
             </div>
-                <div
-                  class="product-card_hover_show-{{forloop.index}} card-hover-show">
-                  <div class="product_card_image_container">
-                    <img
-                      src="{{ block.settings.productid.featured_image | image_url }} "
-                      height="60"
-                      width="60"
-                      class="product-card-image"
-                    >
+                <div class="product-card_hover_show-{{forloop.index}} card-hover-show custom-hotspot--product-card">
+                  <a href="{{ block.settings.productid.url }}">
+                  <div class="custom-hostpot--product-card-image-container">
+                    <img src="{{ block.settings.productid.featured_image | image_url }} " height="60" width="60" class="custom-hostpot--product-card-image" />
                   </div>
-                  <div class="product-card-text-container">
-                    <span class="product-card-title">{{ block.settings.productid.title | truncate:15 }}</span>
-                     <div class="product-card-prices">
-                        <span class="price-display-values">${{ block.settings.productid.compare_at_price | money_without_currency }} </span>
-                        <span class="price-display-values price-original">${{block.settings.productid.price | money_without_currency }} </span>
+                  </a>
+                  <div class="custom-hotspot--product-card-text-container">
+                    {% if  block.settings.productid.title != blank %}
+                    <span class="custom-hotspot--product-card-title">{{ block.settings.productid.title | truncate:15 }}</span>
+                    {% endif %}
+                     <div class="custom-hotspot--product-card-prices-container">
+                        {% if block.settings.productid.compare_at_price > block.settings.productid.price %}
+                        <span class="display-price-values">${{ block.settings.productid.compare_at_price | money_without_currency }} </span>
+                        <span class="display-price-values price-original">${{block.settings.productid.price | money_without_currency }} </span>
+                        {% else %}
+                        <span class="display-price-values price-original">${{block.settings.productid.price | money_without_currency }} </span>
+                        {% endif  %}
                     </div>
-                    <span class="add-to-card-button">Add to bag</span>
+                    {% if block.settings.add_to_cart %}
+                    <button class="add-to-cart-button" data-product="{{ block.settings.productid.variants.first.id }}">Add to Bag</button>
+                    {% endif %}
                   </div>
                 </div>
             {% endfor %}
         </div>
     </div>
-    <div class="product_list-container">
-        <splider-component class="splide" data-slider-options= '{{ sliderOptions }}'>
+    <div class="product-list-{{ section.id }}">
+        <splider-component class="splide" data-slider-option= '{{ sliderOption }}'>
             <div class="splide__track">
                 <ul class="splide__list">
                     {% for product in section.settings.product_list %}
                     <li class="splide__slide">
                     <div class="product-list-container">
-                     <img src='{{ product.featured_image | image_url }}' height="auto" width="auto"  class="product-card-image-size" />
-                     <p class="product-card-title">{{ product.title }}</p>
+                        <div class="product-list--image-container">
+                            <img src='{{ product.featured_image | image_url }}' height="auto" width="auto"  class="product-card-image-size" />
+                            {% if product.tags.first != blank %}
+                            <span class="product-list--tag">{{ product.tags.first }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="product-list--text-container">
+                        {% if product.vendor != blank %}
+                            <span class="product-card--vendor">{{ product.vendor }} </span>
+                            <br/>
+                        {% endif %}
+                        {% if product.title != blank %}
+                     <span class="product-list--product-card-title">{{ product.title }}</span>
+                     {% endif %}
                      <div class="product-card-prices">
-                        <span class="price-display-values price-original">${{product.price | money_without_currency }} </span>
-                        <span class="price-display-values">${{ product.compare_at_price | money_without_currency }} </span>
+                        <div class="customer-reviews--review">
+                            <div class="star-rating-{{ forloop.index }}"></div>
+                            <span class="customer-reviews-rating-decimal">{{ product.metafields.custom.ratings }}</span>
+                        </div>
+                        {% if product.compare_at_price > product.price %}
+                        <span class="product-card-list--compare-price price-original">${{product.price | money_without_currency }} </span>
+                        <span class="product-card-list--compare-price">${{ product.compare_at_price | money_without_currency }} </span>
+                        {% else %}
+                        <span class="product-card-list--compare-price price-original">${{product.price | money_without_currency }} </span>
+                        {% endif %}
+                    </div>
                     </div>
                      </div>
                     </li>
@@ -237,6 +385,42 @@
 
 
 <script src = {{ "custom-splider.js"| asset_url }} defer> </script>
+    <script>
+        let buttonEl = document.querySelectorAll(".add-to-cart-button")
+
+buttonEl.forEach(button=>{
+    button.addEventListener("click",(event)=>{
+        let val = event.target.dataset.product
+        console.log(val)
+        let formData = {
+            'items': [{
+             'id': val,
+             'quantity': 1
+             }]
+           };
+           fetch(window.Shopify.routes.root + 'cart/add.js', {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/json'
+             },
+             body: JSON.stringify(formData)
+           })
+           .then(response => {
+             return response.json();
+           })
+           .then(response => {
+             //Replace the below line with ajax cart open and update code
+              document.location.href = '/cart';
+            let cartEl = document.querySelector("cart-drawer.drawer");
+            cartEl.classList.add("active") 
+           })
+           .catch((error) => {
+             console.error('Error:', error);
+           });
+    })
+})
+      </script>
+
 
 
 {% schema %}
@@ -260,6 +444,26 @@
      "default": "shop the look"
     
     },
+    {
+        "type": "select",
+        "id": "text_position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center",
+        "label": "Heading alignment"
+      },
     {
         "type": "image_picker",
         "id": "hotspot_background_image",
