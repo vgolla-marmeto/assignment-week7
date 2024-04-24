@@ -1,0 +1,252 @@
+{% comment %} 
+
+
+{% liquid 
+
+ assign autoplay =  section.settings.auto_play 
+ assign showPagination =  section.settings.show_pagination 
+ assign showArrows =  section.settings.show_arrows 
+ assign duration =  section.settings.auto_play_duration 
+
+
+%}
+
+
+{% capture sliderSettings %}
+{
+ "autoplay": {{ autoplay }},
+ "pagination" : {{ showPagination }},
+ "arrows": {{ showArrows }}
+
+}
+{% endcapture %}
+
+
+
+
+
+{% style %}
+
+.padding-{{ section.id }}{
+    padding-top: {{ paddingTop | divided_by:2 }}px;
+    padding-bottom: {{ paddingBottom | divided_by:2 }}px;
+  }
+
+  @media screen and (min-width:750px){
+    .padding-{{section.id}}{
+      padding-top: {{ paddingTop }}px;
+      padding-bottom: {{ paddingBottom }}px;
+    }
+    
+  }
+
+
+{% endstyle %} {% endcomment %}
+
+
+{% schema %}
+
+
+
+{
+    "name": "Custom Slideshow",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+           {
+            "type": "header",
+            "content": "Slider Options"
+        
+        },
+        {
+            "type": "checkbox",
+            "id": "auto_play",
+            "label": "Enable autoplay",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_pagination",
+            "label": "Show Dots",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_arrows",
+            "label": "Show arrows",
+            "default": false
+        },
+        {
+            "type": "range",
+            "id": "auto_play_duration",
+            "min": 1000,
+            "max": 5000,
+            "step": 1000,
+            "unit": "ms",
+            "label": "Autoplay Duration",
+            "default":2000
+        },
+        {
+            "type": "header",
+            "content": "Animation Options"
+        },
+        {
+            "type": "select",
+            "id": "slider_animation",
+            "label": "Slider animation",
+            "options": [
+                {
+                "value": "fade",
+                "label": "Fade"
+                },
+                {
+                  "value": "slide",
+                "label": "Slide"
+                },
+                 {
+                     "value": "loop",
+                    "label": "Loop"
+                    }
+
+            ],
+            "default": "slide"
+        },
+        {
+            "type": "header",
+            "content": "Section Padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px",
+            "label": "Padding",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px",
+            "label": "Padding",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+          "type": "slide",
+          "name": "Slide",
+          "settings": [
+            {
+                "type": "header",
+                "content": "Media Options"
+            },
+            {
+                "type": "image_picker",
+                "id": "desktop_image",
+                "label": "Desktop Image",
+                "info": "Recommended size 1360 x 633 px"
+            },
+            {
+                "type": "image_picker",
+                "id": "mobile_image",
+                "label": "Mobile image",
+                "info": "Recommended size 360 x 282 px"
+            },
+            {
+                "type": "header",
+                "content": "Text customization"
+            },
+            {
+                "type": "text",
+                "id": "pre_heading",
+                "label": "Pre Heading",
+                "default": "Women's Apparel"
+            },
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "Elevate your wardrobe with our limited-time fashion offer!"
+            },
+            {
+                "type": "text",
+                "id": "button_label",
+                "label": "Button Label",
+                "default": "Explore More"
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button Url"
+            },
+            {
+                "type": "select",
+                "id": "content_alignement",
+                "label": "Content Alignment",
+                "options": [
+                    {
+                    "value": "top-left",
+                    "label": "Top Left"
+                    },
+                    {
+                     "value": "top-center",
+                    "label": "Top Center"
+                    },
+                    {
+                      "value": "top-right",
+                      "label": "Top Right"
+                    },
+                    {
+                     "value": "center-left",
+                    "label": "Center Left"
+                    },
+                     {
+                         "value": "center-center",
+                        "label": "Center Center"
+                        },
+                        {
+                          "value": "center-right",
+                          "label": "Center Right"
+                        },
+                        {
+                            "value": "bottom-left",
+                            "label": "Bottom Left"
+                            },
+                            {
+                             "value": "bottom-center",
+                            "label": "Bottom Center"
+                            },
+                            {
+                              "value": "bottom-right",
+                              "label": "Bottom Right"
+                            }
+
+                ],
+                "default": "center-center"
+            }
+            
+
+          ]
+        }
+    ],
+    "presets": [
+        {
+          "name": "Custom Slideshow",
+          "blocks": [
+            {
+                "type": "slide"
+            }
+          ]
+        }
+    ]
+}
+
+
+
+
+{% endschema %}

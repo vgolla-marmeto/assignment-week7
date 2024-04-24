@@ -1,0 +1,171 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="custom-navigation--header">
+  <div class="page-width">
+    <div class="custom-navigation--items-container">
+      <div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+  
+  {%- liquid
+    if section.settings.header_list != blank
+      render 'header-drawer'
+    endif
+  -%}
+
+
+{% for link in section.settings.header_list.links %}
+  {{ link.title | link_to: link.url }}
+
+{%  endfor %}
+
+
+<div>
+
+
+</div>
+
+
+
+
+
+</header>
+
+
+
+
+{% schema %}
+
+
+{
+  "name": "Custom Header",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+     {
+       "type": "image_picker",
+       "id": "logo_image",
+       "label": "Logo Image"
+    
+    },
+    {
+        "type": "link_list",
+        "id": "header_list",
+        "label": "Navigation Menu"
+    },
+   {
+  "type": "color_background",
+  "id": "background_color",
+   "label": "Background Color",
+   "default": "#ffffff"
+
+
+},
+{
+    "type": "select",
+    "id": "header_position",
+    "label": "Header Position",
+    "options": [
+        {
+        "value": "fixed",
+        "label": "Fixed"
+        },
+        {
+          "value": "sticky",
+          "label": "Sticky"
+        
+        }
+    ],
+    "default": "fixed"
+},
+{
+    "type": "select",
+    "id": "desktop_menu_type",
+    "label": "Desktop Menu Type",
+    "options": [
+        {
+        "value": "drawer",
+        "label": "drawer"
+        },
+        {
+         "value": "megamenu",
+         "label": "Mega Menu"
+        }
+    ],
+    "default": "drawer"
+},
+{
+    "type": "checkbox",
+    "id": "search_icon",
+    "label": "Display Search Icon",
+    "default": false
+},
+
+{
+    "type": "checkbox",
+    "id": "display_profile",
+    "label": "Display Profile Icon",
+    "default": false
+},
+  {
+    "type": "checkbox",
+    "id": "display_cart",
+    "label": "Display Cart Icon",
+    "default": false
+  },
+  {
+    "type": "color",
+    "id": "text_color",
+    "label": "Header Text Color",
+    "default": "#000000"
+  },
+  {
+    "type": "range",
+    "id": "padding_top",
+    "min": 0,
+    "max": 100,
+    "step": 10,
+    "unit": "px",
+    "label": "Padding Top",
+    "default": 20
+  },
+  {
+    "type": "range",
+    "id": "padding_bottom",
+    "min": 0,
+    "max": 100,
+    "step": 10,
+    "unit": "px",
+    "label": "Padding Bottom",
+    "default": 20
+  }
+
+  ],
+  "presets": [
+    {
+        "name": "Custom Header"
+    
+    } 
+  ]
+
+}
+
+
+
+{% endschema %}
