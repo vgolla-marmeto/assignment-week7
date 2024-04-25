@@ -261,3 +261,6 @@ splider-component .splide__arrow:disabled {
     opacity: 0.5;
     background: grey;
 }
+splider-component .splide__pagination__page{
+    display: none;
+}
