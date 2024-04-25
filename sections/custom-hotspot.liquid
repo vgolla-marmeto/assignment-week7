@@ -25,26 +25,7 @@
 .custom-hotspot--heading{
     text-align: {{ section.settings.text_position }}
 }
-/* *{
-    font-family: "Inter";
 
-}
-*, :after, :before {
-    box-sizing: inherit;
-    
-}
-.custom-hotspot-image-container{
-    width: 100%;
-    max-height:600px;
-    position:relative;
-    border-radius:6% 6% 20px 20px;
-}
-.custom-hotspot-img-ele{
-    width:100%;
-    max-height:100%;
-    object-fit: cover;
-    border-radius:6% 6% 20px 20px;
-} */
 
 {%  for block in section.blocks %}
 .product-tag-circle-{{forloop.index}}{
@@ -82,88 +63,6 @@
 
 {% endfor %}
 
-/* .custom-hotspot-product-card{
-    max-width:200px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    padding:3px;
-    max-height:60px;
-
-}
-.custom-hostpot--product-card-image-container{
-    margin-right: 8px;
-    width: 66px;
-   height: 66px;
-}
-.custom-hostpot--product-card-image{
-  height:66px;
-  width:66px;
-  background-size:cover;
-}
-
-.custom-hotspot--product-card-text-container{
-  background-color: #fff;
-  padding:5px;
-  text-align:center;
-}
-.custom-hotspot--product-card-prices-container{
-    display:flex;
-    flex-wrap:wrap;
-
-}
-.add-to-cart-button{
-   width:100%;
-   height:25px;
-   border-radius: 5px;
-   box-shadow: 2px 2px 2px 2px #00000040;
-   padding:4px 8px;
-   font-size:10px;
-   font-weight:700;
-   border:none;
-   background-color:#ffffff;
-
-}
-.display-price-values{
-    font-size:10px;
-    margin-right:10px;
-    text-decoration:line-through;
-}
-.product-card-list--compare-price{
-    font-size:16px;
-    margin-left:10px;
-    color:black;
-    text-decoration:line-through;
-
-}
-.product-card-list--price{
-    color:red;
-}
-
-
-.card-container-link-top{
-    text-decoration:none;
-}
-.custom-hotspot--product-card-title{
-    font-size:12px;
-    color:black;
-    font-weight:700;
-}
-.product-list--product-card-title{
-    color:black;
-    font-size:18px;
-    font-weight:bold;
-}
-.card-hover-show{
-    opacity:0;
-    border-radius: 0 16px 16px 16px;
-}
-.card-hover-show:hover{
-    opacity:1;
-    border-radius: 0 16px 16px 16px;
-} */
-
-
 
 .product-list-{{ section.id }}{
    margin-top:30px;
@@ -176,51 +75,7 @@
    background-color:white;
 
 }
-/* .product-list--image-container{
-    height:300px;
-    width:100%;
-    position:relative;
-}
-.product-card-image-size{
-    width:100%;
-    height:100%;
-    background-size:cover;
-    border-radius:8px;
 
-}
-.product-list--tag{
-    position:absolute;
-    top:5%;
-    left:5%;
-    display:flex;
-    font-size:10px;
-    justify-content:center;
-    align-items:center;
-    background-color:#24a0ed;
-    color:white;
-    height:8px ;
-    width: 35px;
-    padding:20px;
-    border-radius: 10px 10px 5px 5px;
-}
-.product-card--vendor{
-    font-size:10px;
-    color:skyblue;
-}
-.product-list--text-container{
-    padding:10px;
-}
-.product-list-container{
-    text-align:center;
-}
-.price-original{
-    color:red;
-    text-decoration:none;
-}
-.custom-hotspot--product-card a{
-    text-decoration:none;
-    outline:none;
-} */
 @media screen and (min-width:998px){
  .product-list-{{ section.id }}{
     position:absolute;
@@ -235,15 +90,7 @@
 }
 
 }
-/* .customer-reviews--review{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.customer-reviews-rating-decimal{
-    margin-left:20px;
-    font-size:16px;
-} */
+
 {% for product in section.settings.product_list %}
 
 .star-rating-{{ forloop.index }}:before {
@@ -258,36 +105,6 @@
         display:block;
 }
 {% endfor %}
-/* .custom-hotspot-card-diaplay:hover~.card-hover-show{
-    opacity:1;
-
-} */
-
-/* splider-component .splide__arrow{
-    background:#fff;
-    opacity:1;
-}
-
-splider-component .splide__arrow--next{
-    right: -4rem;
-    height: 4rem;
-    width: 4rem;
-    top: 18rem;
-    border: 1.5px solid black;
-    border-radius: 50% 50% 5px 5px;
-}
-splider-component .splide__arrow--prev {
-    left: 36rem;
-    top: 23rem;
-    height: 4rem;
-    width: 4rem;
-    border-radius: 5px 5px 50% 50%;
-    border: 1px solid black;
-} 
-splider-component .splide__arrow:disabled {
-    opacity: 0.5;
-    background: grey;
-} */
 
 {% endstyle %}
 
@@ -399,41 +216,7 @@ splider-component .splide__arrow:disabled {
 
 
 <script src = {{ "custom-splider.js"| asset_url }} defer> </script>
-    <script>
-        let buttonEl = document.querySelectorAll(".add-to-cart-button")
-
-    buttonEl.forEach(button=>{
-    button.addEventListener("click",(event)=>{
-        let val = event.target.dataset.product
-        console.log(val)
-        let formData = {
-            'items': [{
-             'id': val,
-             'quantity': 1
-             }]
-           };
-           fetch(window.Shopify.routes.root + 'cart/add.js', {
-             method: 'POST',
-             headers: {
-               'Content-Type': 'application/json'
-             },
-             body: JSON.stringify(formData)
-           })
-           .then(response => {
-             return response.json();
-           })
-           .then(response => {
-             //Replace the below line with ajax cart open and update code
-              document.location.href = '/cart';
-            let cartEl = document.querySelector("cart-drawer.drawer");
-            cartEl.classList.add("active") 
-           })
-           .catch((error) => {
-             console.error('Error:', error);
-           });
-    })
-})
-</script>
+<script src={{ 'custom-hotspot-section.js' | asset_url }} defer></script>
 
 
 
