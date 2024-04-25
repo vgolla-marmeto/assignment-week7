@@ -243,8 +243,8 @@ splider-component .splide__arrow{
 
 splider-component .splide__arrow--next{
     right: -4rem;
-    height: 4rem;
-    width: 4rem;
+    height: 3.5rem;
+    width: 3.5rem;
     top: 18rem;
     border: 1.5px solid black;
     border-radius: 50% 50% 5px 5px;
@@ -252,8 +252,8 @@ splider-component .splide__arrow--next{
 splider-component .splide__arrow--prev {
     left: 36rem;
     top: 23rem;
-    height: 4rem;
-    width: 4rem;
+    height: 3.5rem;
+    width: 3.5rem;
     border-radius: 5px 5px 50% 50%;
     border: 1px solid black;
 } 
