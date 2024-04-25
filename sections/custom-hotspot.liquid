@@ -15,7 +15,7 @@
 }
 @media screen and (min-width:998px){
     .cutsom-hotspot--{{ section.id }}{
-    padding:5rem;
+     padding:5rem;
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
@@ -256,10 +256,10 @@
         display:block;
 }
 {% endfor %}
-.custom-hotspot-card-diaplay:hover~.card-hover-show{
+/* .custom-hotspot-card-diaplay:hover~.card-hover-show{
     opacity:1;
 
-}
+} */
 
 splider-component .splide__arrow{
     background:#fff;
@@ -400,7 +400,7 @@ splider-component .splide__arrow:disabled {
     <script>
         let buttonEl = document.querySelectorAll(".add-to-cart-button")
 
-buttonEl.forEach(button=>{
+    buttonEl.forEach(button=>{
     button.addEventListener("click",(event)=>{
         let val = event.target.dataset.product
         console.log(val)
@@ -431,7 +431,7 @@ buttonEl.forEach(button=>{
            });
     })
 })
-      </script>
+</script>
 
 
 
