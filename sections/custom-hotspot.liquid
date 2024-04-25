@@ -256,6 +256,10 @@
         display:block;
 }
 {% endfor %}
+.custom-hotspot-card-diaplay:hover.card-hover-show{
+    opacity:1;
+
+}
 
 
 
@@ -310,7 +314,7 @@
               {{  }}
             {% endif %}
             {%  for  block in section.blocks %}
-            <div class="hotspot-container-{{ forloop.index }}">
+            <div class="hotspot-container-{{ forloop.index }} custom-hotspot-card-diaplay">
                 <span class="product-tag-circle-{{ forloop.index }}"></span>
             </div>
                 <div class="product-card_hover_show-{{forloop.index}} card-hover-show custom-hotspot--product-card">
