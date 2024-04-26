@@ -200,7 +200,6 @@
         "image_picker_rFPKTq",
         "image_picker_JDyJjp"
       ],
-      "disabled": true,
       "settings": {
         "heading": "Our Story",
         "text": "Effortless was designed and developed by leading ecommerce professionals who are passionate about design and user experience, creating intuitive, user-friendly layouts that are optimized for success and sure to delight our customers.",
@@ -220,9 +219,7 @@
             "productid": "shoes-classic-brown",
             "add_to_cart": true,
             "hotspot_top_position": 18,
-            "hotspot_left_position": 38,
-            "card_top_position": 0,
-            "card_left_position": 0
+            "hotspot_left_position": 38
           }
         },
         "hotspot_dabcyw": {
@@ -231,9 +228,7 @@
             "productid": "black-shirt",
             "add_to_cart": true,
             "hotspot_top_position": 38,
-            "hotspot_left_position": 30,
-            "card_top_position": 0,
-            "card_left_position": 0
+            "hotspot_left_position": 30
           }
         },
         "hotspot_QFFaqH": {
@@ -242,9 +237,7 @@
             "productid": "nylon-holdall-bag",
             "add_to_cart": true,
             "hotspot_top_position": 66,
-            "hotspot_left_position": 69,
-            "card_top_position": 0,
-            "card_left_position": 0
+            "hotspot_left_position": 69
           }
         }
       },
@@ -256,6 +249,7 @@
       "settings": {
         "background_color": "#ffffff",
         "blog_heading": "shop the look",
+        "text_position": "center",
         "hotspot_background_image": "shopify:\/\/shop_images\/image_3.jpg",
         "product_list": [
           "black-shirt",
