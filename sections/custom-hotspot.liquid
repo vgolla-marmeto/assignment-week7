@@ -202,6 +202,7 @@
                         {% else %}
                         <span class="product-card-list--compare-price price-original">${{product.price | money_without_currency }} </span>
                         {% endif %}
+                        <p>{{ product.compare_at_price | minus: product.price }}</p> 
                     </div>
                     </div>
                      </div>
