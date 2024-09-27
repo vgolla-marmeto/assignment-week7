@@ -1,6 +1,15 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/Effortless_200x_2x_c439dc55-16cf-49cc-b090-c13e76db3ad6.webp",
+    "logo": "shopify://shop_images/Effortless_200x_2x_c439dc55-16cf-49cc-b090-c13e76db3ad6.webp",
     "logo_width": 190,
     "type_header_font": "montserrat_n8",
     "heading_scale": 105,
@@ -98,7 +107,7 @@
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
     "brand_headline": "",
-    "brand_description": "<p><\/p>",
+    "brand_description": "<p></p>",
     "brand_image_width": 100,
     "social_facebook_link": "",
     "social_instagram_link": "",
@@ -139,7 +148,7 @@
             "settings": {
               "title": "green",
               "color_code": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)",
-              "image": "shopify:\/\/shop_images\/vertical-shot-traditional-indian-paneer-butter-masala-cheese-cottage-curry-black-surface.jpg"
+              "image": "shopify://shop_images/vertical-shot-traditional-indian-paneer-butter-masala-cheese-cottage-curry-black-surface.jpg"
             }
           },
           "solid_color_Dbddmc": {
@@ -223,6 +232,14 @@
           "button_label": "#334fb4",
           "secondary_button_label": "#ffffff",
           "shadow": "#121212"
+        }
+      }
+    },
+    "blocks": {
+      "opinew-global-code": {
+        "type": "shopify://apps/opinew-product-reviews-app/blocks/global/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
+        "disabled": false,
+        "settings": {
         }
       }
     }
@@ -383,7 +400,7 @@
       "sale_badge_color_scheme": "scheme-4",
       "sold_out_badge_color_scheme": "scheme-3",
       "brand_headline": "",
-      "brand_description": "<p><\/p>",
+      "brand_description": "<p></p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",
